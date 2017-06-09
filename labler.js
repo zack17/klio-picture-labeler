@@ -7,15 +7,19 @@ async function labelPictures(bucketName) {
 
     for (const file of fileNames) {
         console.log(`Retrieve labels for file ${file.name}`);
-        const labels = await recognition.getLabels(file.metadata.mediaLink);
-        const metadata = {
-            metadata: {
-                labels: JSON.stringify(labels)
-            }
-        };
+        try {
+            const labels = await recognition.getLabels(file.metadata.mediaLink);
+            const metadata = {
+                metadata: {
+                    labels: JSON.stringify(labels)
+                }
+            };
 
-        console.log(`Set metadata for file ${file.name}`);
-        await storage.setMetadata(file, metadata);
+            console.log(`Set metadata for file ${file.name}`);
+            await storage.setMetadata(file, metadata);
+        } catch (ex) {
+            console.warn("Failed to set metadata for file ${file.name}", ex);
+        }
     }
 }
 
