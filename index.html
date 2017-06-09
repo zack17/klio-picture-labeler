@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>ZACK17</title>
+    <title>Klio Picture Labeler</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -13,8 +13,12 @@
     <div class="container">
 
         <form class="form-inline" style="margin-top: 20px">
-            <label class="mr-sm-2" for="bucketName">Bucket Name</label>
-            <input type="text" id="bucketName" value="wandervoegel" class="form-control mb-2 mr-sm-2 mb-sm-0" />
+            <label class="mr-sm-2" for="bucketName">Data Set</label>
+            <select id="bucketName" value="wandervoegel" class="form-control mb-2 mr-sm-2 mb-sm-0">
+                <option value="wandervoegel" selected="selected">Wandervögel</option>
+                <option value="volkart">Volkart</option>
+                <option value="lvz">LVZ</option>
+            </select>
 
             <button type="submit" value="Show" id="show" class="btn btn-primary">Show</button>
         </form>

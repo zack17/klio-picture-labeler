@@ -163,6 +163,8 @@ async function update(response, label) {
 document.querySelector("#show").addEventListener("click", async function(event) {
     event.preventDefault();
 
+    this.setAttribute("disabled", "disabled");
+
     clearChildren(document.querySelector("#word-cloud"));
 
     const bucketName = document.querySelector("#bucketName").value;
@@ -171,4 +173,6 @@ document.querySelector("#show").addEventListener("click", async function(event) 
     chart(response.items);
 
     update(response);
+
+    this.removeAttribute("disabled");
 });
