@@ -10,9 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "@google-cloud/storage": "^1.1.1",
-    "@google-cloud/vision": "^0.11.3",
-    "d3": "^4.9.1",
-    "d3-cloud": "^1.2.4"
+    "@google-cloud/vision": "^0.11.3"
   },
-  "repository": "https://github.com/zack17/archive-labler.git"
+  "repository": "https://github.com/zack17/klio-picture-labeler.git"
 }
