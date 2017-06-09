@@ -16,7 +16,8 @@ async function uploadFiles(directory, bucketName) {
     const bucket = await storage.getOrCreateBucket(bucketName);
     const fileNames = await util.promisify(fs.readdir)(directory);
     const absoluteFileNames = fileNames.map(name => path.join(directory, name));
-    const uploadTasks = absoluteFileNames.map(fileName => storage.uploadTo(bucket, fileName, { public: true }));
+    const onlyFiles = absoluteFileNames.filter(name => fs.lstatSync(name).isFile());
+    const uploadTasks = onlyFiles.map(fileName => storage.uploadTo(bucket, fileName, { public: true }));
 
     await Promise.all(uploadTasks);
 }

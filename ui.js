@@ -46,7 +46,7 @@ function wordCloud(target, bucketName) {
     return function render(pictures) {
         const labels = countLabels(pictures);
         const layout = d3.layout.cloud()
-            .size([500, 500])
+            .size([800, 500])
             .words(Array.from(labels).map(([key, value]) => { return {text: key, size: 10 + value }; }))
             .padding(5)
             .rotate(function() { return ~~(Math.random() * 2) * 90; })
@@ -55,6 +55,7 @@ function wordCloud(target, bucketName) {
             .on("end", draw);
 
         layout.start();
+        let lastSelected;
 
         function draw(words) {
             d3.select(target).append("svg")
@@ -67,6 +68,13 @@ function wordCloud(target, bucketName) {
                 .enter().append("text")
                 .on("click", async function (word) {
                     const label = word.text;
+                    const width = Math.max(word.size / 25, 0.5);
+                    d3.select(this).attr("stroke", "yellow").attr("stroke-width", `${width}px`);
+                    if (lastSelected) {
+                        lastSelected.attr("stroke", null);
+                    }
+                    lastSelected = d3.select(this);
+
                     const response = await getFiles(bucketName);
                     update(response, label);
                 })
