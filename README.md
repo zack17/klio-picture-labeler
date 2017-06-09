@@ -5,7 +5,7 @@
 Clone the git repository 
 
 ```bash
-git clone https://github.com/zack17/archive-labler.git
+git clone https://github.com/zack17/klio-picture-labeler.git
 ```
 
 
