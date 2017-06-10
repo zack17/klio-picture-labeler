@@ -21,7 +21,7 @@ The used demo photos were taken from:
 * Bildarchiv des Lebensmittelverein Zürich (LVZ), Sozialarchiv Zürich, [Link to dataset](https://data.stadt-zuerich.ch/dataset/sozialarchiv-lvz)
 * Fotosammlung: Wandervogel - Schweizerischer Bund für alkoholfreie Jugendwanderungen, Sozialarchiv Zürich, [Link to dataset](https://data.stadt-zuerich.ch/dataset/sozialarchiv-wandervogel)
 
-All licenced under [cc-by](http://opendefinition.org/licenses/cc-by/)
+All licensed under [cc-by](http://opendefinition.org/licenses/cc-by/)
 
 ## Disclaimer
 Im Rahmen des [Zack 17](http://vsa-aas.ch/archivtag-2017/hackday-zuerich/) zusammen *gehackt*. 
