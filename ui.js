@@ -120,6 +120,7 @@ function createCard(picture) {
     const img = document.createElement("img");
     img.setAttribute("class", "card-img-top img-thumbnail");
     img.setAttribute("src", picture.mediaLink);
+    img.setAttribute("data-remote", picture.mediaLink);
     card.appendChild(img);
 
     const body = document.createElement("div");
@@ -177,3 +178,8 @@ document.querySelector("#show").addEventListener("click", async function(event) 
 
     this.removeAttribute("disabled");
 });
+
+$(pictures).on("click", "img", function (event) {
+    event.preventDefault();
+    $(this).ekkoLightbox();
+})
