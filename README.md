@@ -1,5 +1,9 @@
 # KLIO Picture Labeler
 
+Historical archive often have to deal with a huge amount of photographs and other historical images. Once they are digitalized, they need to get categorized: What is pictured on them?
+
+This application is an experimental approach to use automated image-recognition for this task.
+
 ## Getting Started
 
 Clone the git repository 
