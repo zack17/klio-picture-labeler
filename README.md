@@ -1,4 +1,4 @@
-# ZACK 17
+# KLIO Picture Labeler
 
 ## Getting Started
 
