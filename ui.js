@@ -1,4 +1,4 @@
-const url = "https://www.googleapis.com/storage/v1/b";
+const url = "./Fotos";
 const cache = new Map();
 
 const results = document.querySelector("#pictures");
@@ -16,7 +16,7 @@ async function getFiles(bucketName) {
         return existing;
     }
 
-    const response = await fetch(`${url}/${bucketName}/o`);
+    const response = await fetch(`${url}/${bucketName}.json`);
     if (response.ok) {
         const json = await response.json();
         cache.set(bucketName, json);
@@ -46,7 +46,7 @@ function wordCloud(target, bucketName) {
     return function render(pictures) {
         const labels = countLabels(pictures);
         const layout = d3.layout.cloud()
-            .size([800, 500])
+            .size([target.getBoundingClientRect().width, 500])
             .words(Array.from(labels).map(([key, value]) => { return {text: key, size: 10 + value }; }))
             .padding(5)
             .rotate(function() { return ~~(Math.random() * 2) * 90; })
@@ -59,6 +59,7 @@ function wordCloud(target, bucketName) {
 
         function draw(words) {
             d3.select(target).append("svg")
+                .attr("class", "mx-auto d-block")
                 .attr("width", layout.size()[0])
                 .attr("height", layout.size()[1])
                 .append("g")
