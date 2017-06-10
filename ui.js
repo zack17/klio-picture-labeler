@@ -3,12 +3,6 @@ const cache = new Map();
 
 const results = document.querySelector("#pictures");
 
-function clearChildren(parent) {
-    while (parent.childNodes.length > 0) {
-        parent.removeChild(parent.childNodes[parent.childNodes.length - 1]);
-    }
-}
-
 async function getFiles(bucketName) {
     const existing = cache.get(bucketName);
 
@@ -152,7 +146,7 @@ function createCard(picture) {
 let chart;
 
 async function update(response, label) {
-    clearChildren(results);
+    $(results).empty();
 
     const filtered = filter(response.items, label);
 
@@ -167,7 +161,7 @@ document.querySelector("#show").addEventListener("click", async function(event) 
 
     this.setAttribute("disabled", "disabled");
 
-    clearChildren(document.querySelector("#word-cloud"));
+    $("#word-cloud").empty();
 
     const bucketName = document.querySelector("#bucketName").value;
     const response = await getFiles(bucketName);
